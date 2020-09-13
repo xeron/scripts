@@ -2,6 +2,11 @@
 
 require 'fileutils'
 
+unless ARGV[0]
+  warn "Usage: #{File.basename($PROGRAM_NAME)} 'GLOB_PATTERN' [MERGED_DIRECTORY]"
+  exit(1)
+end
+
 MERGED_DIR = ARGV[1] || 'merged'
 FileUtils.mkdir_p(MERGED_DIR)
 

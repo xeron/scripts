@@ -1,0 +1,16 @@
+require:
+  - rubocop-performance
+
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - bundle/**/*
+  TargetRubyVersion: 2.7
+  NewCops: enable
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods

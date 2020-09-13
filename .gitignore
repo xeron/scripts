@@ -1,0 +1,12 @@
+# Ignore bundler config and gems.
+/.bundle
+/bundle
+
+# Mac
+.DS_Store
+
+# byebug
+/.byebug_history
+
+# RVM
+.ruby-version
