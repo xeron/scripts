@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ttaenc -d "$1.tta" "$1.wav";
+lame --preset insane -h "$1.wav" "$1.mp3";
+mp3splt -a -c "$1.cue" "$1.mp3";
