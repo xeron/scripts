@@ -7,16 +7,22 @@ unless ARGV[0]
   exit(1)
 end
 
+files = Dir.glob(ARGV[0]).sort
+
+if files.empty?
+  warn 'No files to process. Aborting...'
+  exit(1)
+end
+
 MERGED_DIR = ARGV[1] || 'merged'
 FileUtils.mkdir_p(MERGED_DIR)
-
-files = Dir.glob(ARGV[0]).sort
-files_count = files.count / 2
 
 print 'Copying cover... '
 cover = files.shift
 FileUtils.cp(cover, File.join(MERGED_DIR, "0#{File.extname(cover)}"))
 puts 'done.'
+
+files_count = files.count / 2
 
 files.each_slice(2).with_index(1) do |(file1, file2), i|
   print "Converting #{i}/#{files_count}... "
