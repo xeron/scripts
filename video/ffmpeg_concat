@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in `ls $1 | sort -V`; do echo "file $i"; done > filelist.txt
+
+ffmpeg -f concat -i filelist.txt -c copy all.mp4
+
+rm filelist.txt
